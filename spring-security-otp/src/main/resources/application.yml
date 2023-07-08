@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  shutdown: graceful
+  forward-headers-strategy: native
+  servlet:
+    encoding:
+      force: true
+      enabled: true
+      charset: UTF-8
+spring:
+  datasource:
+    hikari:
+      pool-name: HikariCp
+      maximum-pool-size: 2
+      minimum-idle: 2
+    username: wool
+    password: wool_pwd
+    url: jdbc:postgresql://127.0.0.1:54321/wool
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: wool

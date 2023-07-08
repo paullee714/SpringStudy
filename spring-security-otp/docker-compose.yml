@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: otp-service-database
+    ports:
+      - "54321:5432"
+    volumes:
+      - .postgresql/:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_DB=wool
+      - POSTGRES_USER=wool
+      - POSTGRES_PASSWORD=wool_pwd
